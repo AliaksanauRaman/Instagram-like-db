@@ -16,6 +16,23 @@ Table posts {
   lng REAL
 }
 
+Table photo_tags {
+  id SERIAL [pk, increment]
+  created_at TIMESTAMP
+  updated_at TIMESTAMP
+  post_id INTEGER [ref: > posts.id]
+  user_id INTEGER [ref: > users.id]
+  x INTEGER
+  y INTEGER
+}
+
+Table caption_tags {
+  id SERIAL [pk, increment]
+  created_at TIMESTAMP
+  post_id INTEGER [ref: > posts.id]
+  user_id INTEGER [ref: > users.id]
+}
+
 Table comments {
   id SERIAL [pk, increment]
   created_at TIMESTAMP
